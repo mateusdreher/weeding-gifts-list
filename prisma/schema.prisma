@@ -11,11 +11,12 @@ datasource db {
 }
 
 model Gift {
-  id              String  @id @default(uuid())
-  name            String
-  link            String
-  status          String  @default("available")
-  personWhoBought String?
+  id                String  @id @default(uuid())
+  name              String
+  link              String
+  status            String  @default("available")
+  personWhoBoughtIt String?
+  price             Float
 
   @@map("gifts")
 }
