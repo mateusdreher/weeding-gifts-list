@@ -4,7 +4,12 @@ import { PrismaClient } from '@prisma/client';
 import { GiftController } from './gift/application/presenters/gift.controller';
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
-import { createGiftFactory } from './gift/application/presenters/gift.controller.factory';
+import {
+  createGiftFactory,
+  listAllGiftsUseCase,
+  listGiftsByStatusFactory,
+  selectGiftFactory,
+} from './gift/application/presenters/gift.controller.factory';
 
 @Module({
   imports: [],
@@ -16,6 +21,9 @@ import { createGiftFactory } from './gift/application/presenters/gift.controller
     },
     PrismaClient,
     createGiftFactory,
+    selectGiftFactory,
+    listGiftsByStatusFactory,
+    listAllGiftsUseCase,
   ],
 })
 export class AppModule {}

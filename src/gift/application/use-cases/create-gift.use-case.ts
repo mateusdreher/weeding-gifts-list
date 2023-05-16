@@ -4,17 +4,20 @@ import { EntityToResponseMapper } from '../../infrastructure/mappers/entity-to-r
 import { Injectable, HttpStatus } from '@nestjs/common';
 import { CreateGiftDTO, GiftResponseDTO } from '../dtos';
 import { GiftRepository } from 'src/gift/domain/ports';
+import { GiftStatus } from 'src/gift/domain/enums/gift-status.enum';
 
 @Injectable()
-export class CreateGiftUseCase implements GiftUseCase {
+export class CreateGiftUseCase
+  implements GiftUseCase<CreateGiftDTO, GiftResponseDTO>
+{
   constructor(private readonly respository: GiftRepository) {}
-  async execute(
-    CreateGiftDTO: CreateGiftDTO,
-  ): Promise<GiftResponseDTO> {
+  async execute(createGiftDTO: CreateGiftDTO): Promise<GiftResponseDTO> {
     try {
-      const example = new Gift(CreateGiftDTO);
-
-      const result = await this.respository.create(example);
+      const gift = new Gift(createGiftDTO);
+      if (!gift.status) {
+        gift.status = GiftStatus.AVAILABLE;
+      }
+      const result = await this.respository.create(gift);
 
       return {
         statusCode: HttpStatus.CREATED,

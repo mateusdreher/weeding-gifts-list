@@ -1,3 +1,4 @@
+import { GiftStatus } from './../../domain/enums/gift-status.enum';
 import { ApiProperty } from '@nestjs/swagger';
 export class GiftDTO {
   @ApiProperty()
@@ -16,5 +17,8 @@ export class GiftDTO {
   personWhoBoughtIt: string;
 
   @ApiProperty()
-  status: string;
+  status: GiftStatus;
+
+  @ApiProperty()
+  byLink: boolean;
 }

@@ -1,3 +1,4 @@
+import { GiftStatus } from './../../domain/enums/gift-status.enum';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateGiftDTO {
@@ -11,8 +12,8 @@ export class CreateGiftDTO {
   price: number;
 
   @ApiProperty()
-  personWhoBoughtIt: string;
+  personWhoBoughtIt?: string;
 
   @ApiProperty()
-  status: string;
+  status?: GiftStatus;
 }

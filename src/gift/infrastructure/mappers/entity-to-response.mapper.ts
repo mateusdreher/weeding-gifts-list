@@ -9,6 +9,7 @@ export class EntityToResponseMapper {
       price: entity.price,
       personWhoBoughtIt: entity.personWhoBoughtIt,
       status: entity.status,
+      byLink: entity.byLink,
     };
   }
 }

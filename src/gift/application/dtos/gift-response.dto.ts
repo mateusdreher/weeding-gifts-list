@@ -9,5 +9,5 @@ export class GiftResponseDTO {
   message: string;
 
   @ApiProperty()
-  data: GiftDTO;
+  data: GiftDTO | GiftDTO[];
 }
