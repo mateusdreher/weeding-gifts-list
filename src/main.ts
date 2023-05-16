@@ -1,10 +1,11 @@
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
+import * as cors from 'cors';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-
+  app.use(cors());
   const config = new DocumentBuilder()
     .setTitle('Gifts API')
     .setDescription('The gifts API description')
