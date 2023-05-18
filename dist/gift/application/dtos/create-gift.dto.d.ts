@@ -5,4 +5,5 @@ export declare class CreateGiftDTO {
     price: number;
     personWhoBoughtIt?: string;
     status?: GiftStatus;
+    image?: string;
 }

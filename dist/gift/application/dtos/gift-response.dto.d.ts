@@ -3,4 +3,5 @@ export declare class GiftResponseDTO {
     statusCode: number;
     message: string;
     data: GiftDTO | GiftDTO[];
+    image?: string;
 }

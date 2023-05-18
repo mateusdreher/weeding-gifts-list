@@ -7,4 +7,5 @@ export declare class GiftDTO {
     personWhoBoughtIt: string;
     status: GiftStatus;
     byLink: boolean;
+    image?: string;
 }

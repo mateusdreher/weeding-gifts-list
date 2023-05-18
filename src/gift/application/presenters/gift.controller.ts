@@ -35,7 +35,7 @@ export class GiftController {
     return await this.listAllGiftsUseCase.execute();
   }
 
-  @Get('/list/:status')
+  @Get('/status/:status')
   async listGiftsByStatus(
     @Param('status') status: string,
   ): Promise<GiftResponseDTO> {

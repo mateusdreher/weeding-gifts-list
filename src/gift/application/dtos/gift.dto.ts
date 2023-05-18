@@ -21,4 +21,7 @@ export class GiftDTO {
 
   @ApiProperty()
   byLink: boolean;
+
+  @ApiProperty()
+  image?: string;
 }

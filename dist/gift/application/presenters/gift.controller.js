@@ -57,7 +57,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], GiftController.prototype, "listAllStatus", null);
 __decorate([
-    (0, common_1.Get)('/list/:status'),
+    (0, common_1.Get)('/status/:status'),
     __param(0, (0, common_1.Param)('status')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),

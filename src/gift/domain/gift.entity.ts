@@ -7,6 +7,7 @@ export class Gift {
   public personWhoBoughtIt: string;
   public status: GiftStatus = GiftStatus.AVAILABLE;
   public byLink: boolean;
+  public image: string;
 
   constructor(props: Partial<Gift>) {
     Object.assign(this, props);

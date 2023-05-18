@@ -10,6 +10,7 @@ export class EntityToResponseMapper {
       personWhoBoughtIt: entity.personWhoBoughtIt,
       status: entity.status,
       byLink: entity.byLink,
+      image: entity.image,
     };
   }
 }

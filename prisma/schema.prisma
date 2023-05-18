@@ -20,6 +20,7 @@ model Gift {
   boughtAt          DateTime?
   createdAt         DateTime  @default(now())
   byLink            Boolean   @default(false)
+  image             String    @default("")
 
   @@map("gifts")
 }

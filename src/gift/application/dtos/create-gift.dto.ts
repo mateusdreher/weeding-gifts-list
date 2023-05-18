@@ -16,4 +16,7 @@ export class CreateGiftDTO {
 
   @ApiProperty()
   status?: GiftStatus;
+
+  @ApiProperty()
+  image?: string;
 }

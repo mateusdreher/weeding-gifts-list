@@ -34,5 +34,9 @@ __decorate([
     (0, swagger_1.ApiProperty)(),
     __metadata("design:type", String)
 ], CreateGiftDTO.prototype, "status", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)(),
+    __metadata("design:type", String)
+], CreateGiftDTO.prototype, "image", void 0);
 exports.CreateGiftDTO = CreateGiftDTO;
 //# sourceMappingURL=create-gift.dto.js.map

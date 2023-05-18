@@ -10,4 +10,7 @@ export class GiftResponseDTO {
 
   @ApiProperty()
   data: GiftDTO | GiftDTO[];
+
+  @ApiProperty()
+  image?: string;
 }

@@ -7,5 +7,6 @@ export declare class Gift {
     personWhoBoughtIt: string;
     status: GiftStatus;
     byLink: boolean;
+    image: string;
     constructor(props: Partial<Gift>);
 }
