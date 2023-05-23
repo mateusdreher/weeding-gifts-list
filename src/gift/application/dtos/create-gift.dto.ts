@@ -19,4 +19,6 @@ export class CreateGiftDTO {
 
   @ApiProperty()
   image?: string;
+
+  otherInfos?: any;
 }

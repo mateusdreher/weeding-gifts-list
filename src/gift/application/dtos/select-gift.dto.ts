@@ -8,4 +8,6 @@ export class SelectGiftDTO {
 
   @ApiProperty()
   byLink: boolean;
+
+  otherInfos?: any;
 }

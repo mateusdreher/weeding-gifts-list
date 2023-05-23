@@ -20,7 +20,7 @@ let SelectGiftUseCase = class SelectGiftUseCase {
     }
     async execute(params) {
         try {
-            const { giftId, personWhoBoughtIt, byLink } = params;
+            const { giftId, personWhoBoughtIt, byLink, otherInfos } = params;
             const gift = await this.respository.getGiftById(giftId);
             if (!gift) {
                 throw new common_1.NotFoundException('Gift not found');
@@ -29,7 +29,7 @@ let SelectGiftUseCase = class SelectGiftUseCase {
                 throw new common_1.NotAcceptableException('Gift is not available');
             }
             gift.status = gift_status_enum_1.GiftStatus.BOUGHT;
-            const result = await this.respository.selectItem(gift.id, personWhoBoughtIt, byLink);
+            const result = await this.respository.selectItem(gift.id, personWhoBoughtIt, byLink, otherInfos);
             return {
                 statusCode: common_1.HttpStatus.CREATED,
                 message: 'Gift selected successfully',

@@ -7,6 +7,7 @@ export abstract class GiftRepository {
     giftId: string,
     personWhoBoughtIt: string,
     byLink: boolean,
+    otherInfos: any,
   ): Promise<Gift>;
   abstract listGiftsByStatus(status: string): Promise<Gift[]>;
   abstract listAllGifts(): Promise<Gift[]>;

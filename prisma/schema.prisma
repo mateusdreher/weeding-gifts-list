@@ -21,6 +21,7 @@ model Gift {
   createdAt         DateTime  @default(now())
   byLink            Boolean   @default(false)
   image             String    @default("")
+  otherInfos        Json?
 
   @@map("gifts")
 }

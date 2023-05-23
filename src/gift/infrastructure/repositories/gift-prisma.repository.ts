@@ -41,6 +41,7 @@ export class GiftPrismaRepository implements GiftRepository {
     giftId: string,
     personWhoBoughtIt: string,
     byLink: boolean,
+    otherInfos: any,
   ): Promise<Gift> {
     const result = await this.prismaClient.gift.update({
       where: { id: giftId },
@@ -48,6 +49,7 @@ export class GiftPrismaRepository implements GiftRepository {
         status: GiftStatus.BOUGHT,
         personWhoBoughtIt,
         byLink,
+        otherInfos,
         boughtAt: new Date(),
       },
     });

@@ -17,7 +17,7 @@ export class SelectGiftUseCase
   constructor(private readonly respository: GiftRepository) {}
   async execute(params: SelectGiftDTO): Promise<GiftResponseDTO> {
     try {
-      const { giftId, personWhoBoughtIt, byLink } = params;
+      const { giftId, personWhoBoughtIt, byLink, otherInfos } = params;
       const gift = await this.respository.getGiftById(giftId);
 
       if (!gift) {
@@ -34,6 +34,7 @@ export class SelectGiftUseCase
         gift.id,
         personWhoBoughtIt,
         byLink,
+        otherInfos,
       );
 
       return {

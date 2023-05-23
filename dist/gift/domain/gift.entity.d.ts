@@ -8,5 +8,6 @@ export declare class Gift {
     status: GiftStatus;
     byLink: boolean;
     image: string;
+    otherInfos?: any;
     constructor(props: Partial<Gift>);
 }
