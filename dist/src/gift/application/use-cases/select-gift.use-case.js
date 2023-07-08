@@ -25,11 +25,16 @@ let SelectGiftUseCase = class SelectGiftUseCase {
             if (!gift) {
                 throw new common_1.NotFoundException('Gift not found');
             }
-            if (gift.status !== gift_status_enum_1.GiftStatus.AVAILABLE) {
+            if (gift.status === gift_status_enum_1.GiftStatus.BOUGHT) {
                 throw new common_1.NotAcceptableException('Gift is not available');
             }
-            gift.status = gift_status_enum_1.GiftStatus.BOUGHT;
-            const result = await this.respository.selectItem(gift.id, personWhoBoughtIt, byLink, otherInfos);
+            gift.personWhoBoughtIt.push(personWhoBoughtIt);
+            gift.boughtQuantity += 1;
+            gift.status =
+                gift.boughtQuantity === gift.expectedQuantity
+                    ? gift_status_enum_1.GiftStatus.BOUGHT
+                    : gift_status_enum_1.GiftStatus.PARTIAL_BOUGHT;
+            const result = await this.respository.selectItem(gift.id, gift.personWhoBoughtIt, byLink, otherInfos, gift.boughtQuantity, gift.status);
             return {
                 statusCode: common_1.HttpStatus.CREATED,
                 message: 'Gift selected successfully',

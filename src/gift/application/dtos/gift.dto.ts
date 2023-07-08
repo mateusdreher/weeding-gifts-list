@@ -14,7 +14,7 @@ export class GiftDTO {
   price: number;
 
   @ApiProperty()
-  personWhoBoughtIt: string;
+  personWhoBoughtIt: string[];
 
   @ApiProperty()
   status: GiftStatus;
@@ -24,4 +24,10 @@ export class GiftDTO {
 
   @ApiProperty()
   image?: string;
+
+  @ApiProperty()
+  expectedQuantity: number;
+
+  @ApiProperty()
+  boughtQuantity: number;
 }

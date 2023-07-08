@@ -17,7 +17,21 @@ export class ListGiftsByStatusUseCase
   constructor(private readonly respository: GiftRepository) {}
   async execute(status: string): Promise<GiftResponseDTO> {
     try {
-      const gifts = await this.respository.listGiftsByStatus(status);
+      let filter: any = { status };
+
+      if (status === GiftStatus.AVAILABLE) {
+        filter = {
+          OR: [
+            {
+              status: GiftStatus.AVAILABLE,
+            },
+            {
+              status: GiftStatus.PARTIAL_BOUGHT,
+            },
+          ],
+        };
+      }
+      const gifts = await this.respository.listGiftsByStatus(filter);
 
       if (!gifts?.length) {
         throw new NotFoundException('No gifts found with this status');

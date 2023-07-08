@@ -32,7 +32,7 @@ __decorate([
 ], GiftDTO.prototype, "price", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)(),
-    __metadata("design:type", String)
+    __metadata("design:type", Array)
 ], GiftDTO.prototype, "personWhoBoughtIt", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)(),
@@ -46,5 +46,13 @@ __decorate([
     (0, swagger_1.ApiProperty)(),
     __metadata("design:type", String)
 ], GiftDTO.prototype, "image", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)(),
+    __metadata("design:type", Number)
+], GiftDTO.prototype, "expectedQuantity", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)(),
+    __metadata("design:type", Number)
+], GiftDTO.prototype, "boughtQuantity", void 0);
 exports.GiftDTO = GiftDTO;
 //# sourceMappingURL=gift.dto.js.map

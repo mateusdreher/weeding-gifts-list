@@ -24,17 +24,25 @@ export class SelectGiftUseCase
         throw new NotFoundException('Gift not found');
       }
 
-      if (gift.status !== GiftStatus.AVAILABLE) {
+      if (gift.status === GiftStatus.BOUGHT) {
         throw new NotAcceptableException('Gift is not available');
       }
 
-      gift.status = GiftStatus.BOUGHT;
+      gift.personWhoBoughtIt.push(personWhoBoughtIt);
+      gift.boughtQuantity += 1;
+
+      gift.status =
+        gift.boughtQuantity === gift.expectedQuantity
+          ? GiftStatus.BOUGHT
+          : GiftStatus.PARTIAL_BOUGHT;
 
       const result = await this.respository.selectItem(
         gift.id,
-        personWhoBoughtIt,
+        gift.personWhoBoughtIt,
         byLink,
         otherInfos,
+        gift.boughtQuantity,
+        gift.status,
       );
 
       return {

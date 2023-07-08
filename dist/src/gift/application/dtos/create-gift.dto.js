@@ -28,7 +28,7 @@ __decorate([
 ], CreateGiftDTO.prototype, "price", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)(),
-    __metadata("design:type", String)
+    __metadata("design:type", Array)
 ], CreateGiftDTO.prototype, "personWhoBoughtIt", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)(),

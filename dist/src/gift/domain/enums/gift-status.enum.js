@@ -5,5 +5,6 @@ var GiftStatus;
 (function (GiftStatus) {
     GiftStatus["BOUGHT"] = "BOUGHT";
     GiftStatus["AVAILABLE"] = "AVAILABLE";
+    GiftStatus["PARTIAL_BOUGHT"] = "PARTIAL_BOUGHT";
 })(GiftStatus = exports.GiftStatus || (exports.GiftStatus = {}));
 //# sourceMappingURL=gift-status.enum.js.map

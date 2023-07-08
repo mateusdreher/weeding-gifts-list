@@ -3,7 +3,7 @@ export declare class CreateGiftDTO {
     name: string;
     link: string;
     price: number;
-    personWhoBoughtIt?: string;
+    personWhoBoughtIt?: string[];
     status?: GiftStatus;
     image?: string;
     otherInfos?: any;

@@ -4,8 +4,10 @@ export declare class GiftDTO {
     name: string;
     link: string;
     price: number;
-    personWhoBoughtIt: string;
+    personWhoBoughtIt: string[];
     status: GiftStatus;
     byLink: boolean;
     image?: string;
+    expectedQuantity: number;
+    boughtQuantity: number;
 }

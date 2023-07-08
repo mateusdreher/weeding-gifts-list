@@ -1,7 +1,7 @@
 import { GiftStatus } from './../../domain/enums/gift-status.enum';
 import { Gift } from '../../domain/gift.entity';
 import { Injectable } from '@nestjs/common';
-import { PrismaClient } from '@prisma/client';
+import { Prisma, PrismaClient } from '@prisma/client';
 import { GiftRepository } from 'src/gift/domain/ports';
 
 @Injectable()
@@ -39,18 +39,21 @@ export class GiftPrismaRepository implements GiftRepository {
 
   async selectItem(
     giftId: string,
-    personWhoBoughtIt: string,
+    personWhoBoughtIt: string[],
     byLink: boolean,
     otherInfos: any,
+    boughtQuantity: number,
+    newStatus: string,
   ): Promise<Gift> {
     const result = await this.prismaClient.gift.update({
       where: { id: giftId },
       data: {
-        status: GiftStatus.BOUGHT,
+        status: newStatus,
         personWhoBoughtIt,
         byLink,
         otherInfos,
         boughtAt: new Date(),
+        boughtQuantity,
       },
     });
 
@@ -62,9 +65,9 @@ export class GiftPrismaRepository implements GiftRepository {
     });
   }
 
-  async listGiftsByStatus(status: string): Promise<Gift[]> {
+  async listGiftsByStatus(where: Prisma.GiftWhereInput): Promise<Gift[]> {
     const result = await this.prismaClient.gift.findMany({
-      where: { status },
+      where,
     });
     return result.map((gift) => {
       const { status, ...rest } = gift;

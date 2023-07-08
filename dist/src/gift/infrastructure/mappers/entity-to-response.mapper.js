@@ -12,6 +12,8 @@ class EntityToResponseMapper {
             status: entity.status,
             byLink: entity.byLink,
             image: entity.image,
+            expectedQuantity: entity.expectedQuantity,
+            boughtQuantity: entity.boughtQuantity,
         };
     }
 }

@@ -13,13 +13,27 @@ exports.ListGiftsByStatusUseCase = void 0;
 const entity_to_response_mapper_1 = require("../../infrastructure/mappers/entity-to-response.mapper");
 const common_1 = require("@nestjs/common");
 const ports_1 = require("../../domain/ports");
+const gift_status_enum_1 = require("../../domain/enums/gift-status.enum");
 let ListGiftsByStatusUseCase = class ListGiftsByStatusUseCase {
     constructor(respository) {
         this.respository = respository;
     }
     async execute(status) {
         try {
-            const gifts = await this.respository.listGiftsByStatus(status);
+            let filter = { status };
+            if (status === gift_status_enum_1.GiftStatus.AVAILABLE) {
+                filter = {
+                    OR: [
+                        {
+                            status: gift_status_enum_1.GiftStatus.AVAILABLE,
+                        },
+                        {
+                            status: gift_status_enum_1.GiftStatus.PARTIAL_BOUGHT,
+                        },
+                    ],
+                };
+            }
+            const gifts = await this.respository.listGiftsByStatus(filter);
             if (!(gifts === null || gifts === void 0 ? void 0 : gifts.length)) {
                 throw new common_1.NotFoundException('No gifts found with this status');
             }

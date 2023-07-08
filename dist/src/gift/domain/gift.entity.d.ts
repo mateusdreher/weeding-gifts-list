@@ -4,10 +4,12 @@ export declare class Gift {
     name: string;
     link: string;
     price: number;
-    personWhoBoughtIt: string;
+    personWhoBoughtIt: string[];
     status: GiftStatus;
     byLink: boolean;
     image: string;
     otherInfos?: any;
+    expectedQuantity: number;
+    boughtQuantity: number;
     constructor(props: Partial<Gift>);
 }

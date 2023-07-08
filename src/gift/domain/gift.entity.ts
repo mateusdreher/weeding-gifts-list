@@ -4,11 +4,13 @@ export class Gift {
   public name: string;
   public link: string;
   public price: number;
-  public personWhoBoughtIt: string;
+  public personWhoBoughtIt: string[];
   public status: GiftStatus = GiftStatus.AVAILABLE;
   public byLink: boolean;
   public image: string;
   public otherInfos?: any;
+  public expectedQuantity: number;
+  public boughtQuantity: number;
 
   constructor(props: Partial<Gift>) {
     Object.assign(this, props);

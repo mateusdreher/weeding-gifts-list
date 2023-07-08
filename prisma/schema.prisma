@@ -15,13 +15,15 @@ model Gift {
   name              String
   link              String
   status            String    @default("AVAILABLE")
-  personWhoBoughtIt String    @default("")
+  personWhoBoughtIt String[]  @default([])
   price             Float
   boughtAt          DateTime?
   createdAt         DateTime  @default(now())
   byLink            Boolean   @default(false)
   image             String    @default("")
   otherInfos        Json?
+  expectedQuantity  Int       @default(1)
+  boughtQuantity    Int       @default(0)
 
   @@map("gifts")
 }

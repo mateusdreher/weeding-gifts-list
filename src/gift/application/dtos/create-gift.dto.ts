@@ -12,7 +12,7 @@ export class CreateGiftDTO {
   price: number;
 
   @ApiProperty()
-  personWhoBoughtIt?: string;
+  personWhoBoughtIt?: string[];
 
   @ApiProperty()
   status?: GiftStatus;

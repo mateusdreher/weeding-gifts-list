@@ -46,23 +46,24 @@ let GiftPrismaRepository = class GiftPrismaRepository {
         const { status } = result, rest = __rest(result, ["status"]);
         return new gift_entity_1.Gift(Object.assign(Object.assign({}, rest), { status: gift_status_enum_1.GiftStatus[status] }));
     }
-    async selectItem(giftId, personWhoBoughtIt, byLink, otherInfos) {
+    async selectItem(giftId, personWhoBoughtIt, byLink, otherInfos, boughtQuantity, newStatus) {
         const result = await this.prismaClient.gift.update({
             where: { id: giftId },
             data: {
-                status: gift_status_enum_1.GiftStatus.BOUGHT,
+                status: newStatus,
                 personWhoBoughtIt,
                 byLink,
                 otherInfos,
                 boughtAt: new Date(),
+                boughtQuantity,
             },
         });
         const { status } = result, rest = __rest(result, ["status"]);
         return new gift_entity_1.Gift(Object.assign(Object.assign({}, rest), { status: gift_status_enum_1.GiftStatus[status] }));
     }
-    async listGiftsByStatus(status) {
+    async listGiftsByStatus(where) {
         const result = await this.prismaClient.gift.findMany({
-            where: { status },
+            where,
         });
         return result.map((gift) => {
             const { status } = gift, rest = __rest(gift, ["status"]);
