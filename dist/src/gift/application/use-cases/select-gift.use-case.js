@@ -14,11 +14,13 @@ const entity_to_response_mapper_1 = require("../../infrastructure/mappers/entity
 const common_1 = require("@nestjs/common");
 const ports_1 = require("../../domain/ports");
 const gift_status_enum_1 = require("../../domain/enums/gift-status.enum");
+const mail_1 = require("../../../mail");
 let SelectGiftUseCase = class SelectGiftUseCase {
     constructor(respository) {
         this.respository = respository;
     }
     async execute(params) {
+        console.log(params);
         try {
             const { giftId, personWhoBoughtIt, byLink, otherInfos } = params;
             const gift = await this.respository.getGiftById(giftId);
@@ -34,7 +36,11 @@ let SelectGiftUseCase = class SelectGiftUseCase {
                 gift.boughtQuantity === gift.expectedQuantity
                     ? gift_status_enum_1.GiftStatus.BOUGHT
                     : gift_status_enum_1.GiftStatus.PARTIAL_BOUGHT;
-            const result = await this.respository.selectItem(gift.id, gift.personWhoBoughtIt, byLink, otherInfos, gift.boughtQuantity, gift.status);
+            const result = await this.respository.selectItem(gift.id, gift.personWhoBoughtIt, byLink, otherInfos, gift.boughtQuantity, gift.status, params.email);
+            if (byLink) {
+                (0, mail_1.sendMail)(params.email, gift.name, gift.mp_link, params.personWhoBoughtIt);
+            }
+            (0, mail_1.sendMail)(params.email, gift.name, gift.mp_link, params.personWhoBoughtIt, true);
             return {
                 statusCode: common_1.HttpStatus.CREATED,
                 message: 'Gift selected successfully',

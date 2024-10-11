@@ -10,4 +10,7 @@ export class SelectGiftDTO {
   byLink: boolean;
 
   otherInfos?: any;
+
+  @ApiProperty()
+  email: string;
 }

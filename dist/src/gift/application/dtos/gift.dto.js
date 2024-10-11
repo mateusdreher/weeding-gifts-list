@@ -54,5 +54,9 @@ __decorate([
     (0, swagger_1.ApiProperty)(),
     __metadata("design:type", Number)
 ], GiftDTO.prototype, "boughtQuantity", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)(),
+    __metadata("design:type", String)
+], GiftDTO.prototype, "mp_link", void 0);
 exports.GiftDTO = GiftDTO;
 //# sourceMappingURL=gift.dto.js.map

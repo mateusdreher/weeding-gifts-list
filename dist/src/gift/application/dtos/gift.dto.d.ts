@@ -10,4 +10,5 @@ export declare class GiftDTO {
     image?: string;
     expectedQuantity: number;
     boughtQuantity: number;
+    mp_link: string;
 }

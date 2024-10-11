@@ -6,7 +6,7 @@ import { GiftRepository } from 'src/gift/domain/ports';
 
 @Injectable()
 export class GiftPrismaRepository implements GiftRepository {
-  constructor(private readonly prismaClient: PrismaClient) {}
+  constructor(private readonly prismaClient: PrismaClient) { }
 
   async create(entity: Gift): Promise<Gift> {
     const result = await this.prismaClient.gift.create({
@@ -44,6 +44,7 @@ export class GiftPrismaRepository implements GiftRepository {
     otherInfos: any,
     boughtQuantity: number,
     newStatus: string,
+    email: string = ""
   ): Promise<Gift> {
     const result = await this.prismaClient.gift.update({
       where: { id: giftId },
@@ -51,7 +52,7 @@ export class GiftPrismaRepository implements GiftRepository {
         status: newStatus,
         personWhoBoughtIt,
         byLink,
-        otherInfos,
+        otherInfos: {email},
         boughtAt: new Date(),
         boughtQuantity,
       },

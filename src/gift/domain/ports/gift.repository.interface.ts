@@ -11,6 +11,7 @@ export abstract class GiftRepository {
     otherInfos: any,
     boughtQuantity: number,
     status: string,
+    email: string
   ): Promise<Gift>;
   abstract listGiftsByStatus(status: Prisma.GiftWhereInput): Promise<Gift[]>;
   abstract listAllGifts(): Promise<Gift[]>;

@@ -13,6 +13,7 @@ export class EntityToResponseMapper {
       image: entity.image,
       expectedQuantity: entity.expectedQuantity,
       boughtQuantity: entity.boughtQuantity,
+      mp_link: entity.mp_link
     };
   }
 }

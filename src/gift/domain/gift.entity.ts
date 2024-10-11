@@ -11,6 +11,7 @@ export class Gift {
   public otherInfos?: any;
   public expectedQuantity: number;
   public boughtQuantity: number;
+  public mp_link: string;
 
   constructor(props: Partial<Gift>) {
     Object.assign(this, props);

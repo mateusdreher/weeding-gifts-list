@@ -30,4 +30,7 @@ export class GiftDTO {
 
   @ApiProperty()
   boughtQuantity: number;
+
+  @ApiProperty()
+  mp_link: string;
 }

@@ -3,4 +3,5 @@ export declare class SelectGiftDTO {
     personWhoBoughtIt: string;
     byLink: boolean;
     otherInfos?: any;
+    email: string;
 }

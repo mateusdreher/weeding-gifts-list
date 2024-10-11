@@ -9,13 +9,15 @@ import {
 import { GiftResponseDTO, SelectGiftDTO } from '../dtos';
 import { GiftRepository } from 'src/gift/domain/ports';
 import { GiftStatus } from 'src/gift/domain/enums/gift-status.enum';
+import { sendMail } from 'src/mail';
 
 @Injectable()
 export class SelectGiftUseCase
   implements GiftUseCase<SelectGiftDTO, GiftResponseDTO>
 {
-  constructor(private readonly respository: GiftRepository) {}
+  constructor(private readonly respository: GiftRepository) { }
   async execute(params: SelectGiftDTO): Promise<GiftResponseDTO> {
+    console.log(params)
     try {
       const { giftId, personWhoBoughtIt, byLink, otherInfos } = params;
       const gift = await this.respository.getGiftById(giftId);
@@ -43,7 +45,13 @@ export class SelectGiftUseCase
         otherInfos,
         gift.boughtQuantity,
         gift.status,
+        params.email
       );
+      if (byLink) {
+        sendMail(params.email, gift.name, gift.mp_link, params.personWhoBoughtIt)
+      }
+
+      sendMail(params.email, gift.name, gift.mp_link, params.personWhoBoughtIt, true)    
 
       return {
         statusCode: HttpStatus.CREATED,

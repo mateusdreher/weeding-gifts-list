@@ -6,7 +6,7 @@ export declare class GiftPrismaRepository implements GiftRepository {
     constructor(prismaClient: PrismaClient);
     create(entity: Gift): Promise<Gift>;
     getGiftById(giftId: string): Promise<Gift>;
-    selectItem(giftId: string, personWhoBoughtIt: string[], byLink: boolean, otherInfos: any, boughtQuantity: number, newStatus: string): Promise<Gift>;
+    selectItem(giftId: string, personWhoBoughtIt: string[], byLink: boolean, otherInfos: any, boughtQuantity: number, newStatus: string, email?: string): Promise<Gift>;
     listGiftsByStatus(where: Prisma.GiftWhereInput): Promise<Gift[]>;
     listAllGifts(): Promise<Gift[]>;
 }

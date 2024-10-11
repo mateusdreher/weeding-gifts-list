@@ -11,5 +11,6 @@ export declare class Gift {
     otherInfos?: any;
     expectedQuantity: number;
     boughtQuantity: number;
+    mp_link: string;
     constructor(props: Partial<Gift>);
 }

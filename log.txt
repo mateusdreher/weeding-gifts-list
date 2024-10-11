@@ -1,0 +1,10 @@
+/bin/sh: 1: /media/mateusdreher/Data/Projects/Personal/weeding-gifts-list-api/script.sh: not found
+/bin/sh: 1: /media/mateusdreher/Data/Projects/Personal/weeding-gifts-list-api/script.sh: not found
+/bin/sh: 1: /media/mateusdreher/Data/Projects/Personal/weeding-gifts-list-api/script.sh: not found
+/bin/sh: 1: /media/mateusdreher/Data/Projects/Personal/weeding-gifts-list-api/script.sh: not found
+/bin/sh: 1: /media/mateusdreher/Data/Projects/Personal/weeding-gifts-list-api/script.sh: not found
+/bin/sh: 1: /media/mateusdreher/Data/Projects/Personal/weeding-gifts-list-api/script.sh: not found
+/bin/sh: 1: /media/mateusdreher/Data/Projects/Personal/weeding-gifts-list-api/script.sh: not found
+/bin/sh: 1: /media/mateusdreher/Data/Projects/Personal/weeding-gifts-list-api/script.sh: not found
+/bin/sh: 1: /media/mateusdreher/Data/Projects/Personal/weeding-gifts-list-api/script.sh: not found
+/bin/sh: 1: /media/mateusdreher/Data/Projects/Personal/weeding-gifts-list-api/script.sh: not found

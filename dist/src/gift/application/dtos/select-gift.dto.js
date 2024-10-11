@@ -25,5 +25,9 @@ __decorate([
     (0, swagger_1.ApiProperty)(),
     __metadata("design:type", Boolean)
 ], SelectGiftDTO.prototype, "byLink", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)(),
+    __metadata("design:type", String)
+], SelectGiftDTO.prototype, "email", void 0);
 exports.SelectGiftDTO = SelectGiftDTO;
 //# sourceMappingURL=select-gift.dto.js.map
