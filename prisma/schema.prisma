@@ -7,7 +7,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url      = "postgres://drehermasteruser:5lNK7VM8IO4VAAo8U55m@personal-rds.cwh3zufntm57.us-east-1.rds.amazonaws.com:5432/weeding_gifts_list"
 }
 
 model Gift {
@@ -24,6 +24,7 @@ model Gift {
   otherInfos        Json?
   expectedQuantity  Int       @default(1)
   boughtQuantity    Int       @default(0)
+  mp_link           String
 
   @@map("gifts")
 }
